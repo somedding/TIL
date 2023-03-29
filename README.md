@@ -18,3 +18,4 @@
     -   `git commit -m`
 - 스테이징 영역
     - `git add` 명령어로 커밋에 포함시키고 싶은 파일만 스테이징 영역에 추가
+    - `git push origin main`
