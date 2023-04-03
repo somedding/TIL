@@ -38,16 +38,23 @@
         - `s.isdigit` s에 0~9 사이 숫자만 있으면 `true`, 그렇지 않으면 `false`
     - 포맷 문자열
         - ` f'...{ }...` 
+    - 이스케이프 시퀀스
+        - `\n` 줄바꿈
+        - `\t` 탭 문자
+        - `\b` 백 스페이스(이문자 뒤의 문자열은 한칸 앞에서 출력)
+        - `\r` 줄의 처음으로. 문자열을 그 줄의 처음부터 출력됨
 - 깃 고급 특강
     - 커밋 개념 복습
         - 커밋 메시지 입력 : `git commit -m` , `git commit --message`
-        - 깃헙에 보내기 명령어 : `git remote add origin https://github.com/somedding/(저장소이름).git` , `git branch -M main` , `git push -u origin main` 
+        - 깃헙에 보내기 명령어 : `git remote add origin https://github.com/somedding/(저장소이름).git` > `git branch -M main` > `git push -u origin main` 
         - 깃헙에 커밋 후 push  `git push -u origin main`
     - 브랜치 
         - `git branch (브랜치 이름)` : `q` 누르거나 `command + c`로 나갈 수 있다
         - branch 확인하기 : `git branch`
         - 작업하는 브랜치 변경하기 : `git switch (브랜치 이름)` `git checkout (브랜치이름)`
-        - branch 병합 : 
+        - branch 병합 : `a` 브랜치를 `b` 브랜치로 병합하려는 경우
+            1. `b` 브랜치를 체크아웃 한다
+            2. `git merge a` 명령어를 입력한다
     - 기타
         - 커밋 수정 : `git commit reset`
-        
+
