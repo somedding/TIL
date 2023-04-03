@@ -25,5 +25,16 @@
     - `s.center` 문자열 가운데 정렬한 길이의 width의 문자열 반환
     - `s.count` 문자열s에 문자열 sub가 출현한 횟수 반환
     - `s.endswith` 문자열 s가 ~로 끝나면 `true`, 아니면 `false`
-    - `s.find` 문자열 s에 문자열의 첫번째 위치 반환. 인덱스 `start``end`가 있으면 그 위치에서 찾기 시작
+    - `s.find` 문자열 s에 문자열의 첫번째 위치 반환. 인덱스 `start`,`end`가 있으면 그 위치에서 찾기 시작
     - `s,join` 문자열의 원소로 갖는 문자열을 문자열로 연결하여 반환
+    - ``
+- 깃 고급 특강
+    - 커밋 개념 복습
+        - 커밋 메시지 입력 : `git commit -m` , `git commit --message`
+        - 깃헙에 보내기 명령어 : `git remote add origin https://github.com/somedding/(저장소이름).git` , `git branch -M main` , `git push -u origin main` 
+        - 깃헙에 커밋 후 push  `git push -u origin main`
+    - 브랜치 
+        - `git branch (브랜치 이름)` : `q` 누르거나 `command + c`로 나갈 수 있다
+        - branch 확인하기 : `git branch`
+        - 작업하는 브랜치 변경하기 : `git switch (브랜치 이름)` `git checkout (브랜치이름)`
+        
