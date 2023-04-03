@@ -47,7 +47,7 @@
         - `git branch (브랜치 이름)` : `q` 누르거나 `command + c`로 나갈 수 있다
         - branch 확인하기 : `git branch`
         - 작업하는 브랜치 변경하기 : `git switch (브랜치 이름)` `git checkout (브랜치이름)`
-        - branch 병합 : 
+        - branch 병합
     - 기타
         - 커밋 수정 : `git commit reset`
         
