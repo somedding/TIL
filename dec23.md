@@ -289,3 +289,137 @@ if (isNaN(age)) {
 
 
 ## The Document Object
+
+- console에 `document`를 입력하면, 작성한 HTML을 가져올 수 있다.
+
+-  document 가 HTML을 보여준다.
+- JavaScript에서 HTML document 객체로부터 항목을 가지고 올 수 있다. (JavaScript는 HTML 읽을 수 있다. ) 읽고, 변경도 가능
+
+## HTML in JavaScript
+
+1. document 라는 객체는 JS에서 HTML파일을 불러올 수 있도록 도와준다
+2. document의 함수 중에는 getElementById 라는 함수가 있는데, 이 함수가 HTML에서 id를 통해 element를 찾아준다  
+
+ex)
+```javascript
+document.getElementedById("idname")
+```
+
+## Searching For Elements
+
+- `getElementsByClassName()` : 많은 element를 가져올때 씀(array를 반환)
+
+```javascript
+const helos = document.getElementsByClassName("Hello")
+```
+
+- `getElementsByTagName()` : name을 할당할 수 있음(array를 반환)
+
+```javascript
+const title = document.getElementsByTagName("h1");
+```
+- `querySelector` : element를 CSS selector 방식으로 검색할 수 있음 (ex. h1:first-child)
+단 하나의 element를 return해줌
+⇒ hello란 class 내부에 있는 h1을 가지고 올 수 있다(id도 가능함)
+- `querySelector`는 첫번째 element만 가져옴
+- 조건에 맞는 세개 다 가져오고 싶으면 `querySelectorAll`
+⇒ 세개의 h1이 들어있는 array를 가져다 줌
+- `querySelector("#hello);` 와 `getElementById("hello");` 는 같은 일을 하는 것임
+
+```javascript
+const title = document.querySelector("#hello"); //#을 통해 Id 임을 명시해야함
+const title = document.getElementById("hello");
+
+//둘은 같은 코드이다.
+```
+하지만 후자는 하위요소 가져오는 것을 못하므로 전자만 쓴다.
+
+## Events pt.1
+
+ - 지금 js파일이 있기 때문에 js를 통해 html의 내용을 가져올 수 있는 거임
+- document가 html이 js파일을 load하기 때문에 존재 → 그 다음에 browser가 우리가 document에 접근할 수 있게 해줌
+- element의 내부를 보고 싶으면 `console.dir()`
+기본적으로 object로 표시한 element를 보여줌(전부 js object임)
+그 element 중 앞에 on이 붙은 것들은 event임
+- `event` : 어떤 행위를 하는 것
+모든 event는 js가 listen할 수 있음
+- `eventListener` : event를 listen함 → js에게 무슨 event를 listen하고 싶은 지 알려줘야 함
+- `title.addEventListener("click")` : 누군가가 title을 click하는 것을 listen할 거임 → 무언가를 해줘야함  
+  
+
+클릭하면 검정색 글자가 파란색 글자로 바뀌는 프로그램
+
+```javascript
+const title = document.querySelector("div.hello:first-child h1");
+
+function handleTitleClick(){
+title.style.color = "blue";
+}
+title.addEventListener("click",handleTitleClick);
+//click하면 handleTitleClick이라는 function이 동작하길 원함
+//그래서 handle~ 함수에 () 를 안넣은 것임
+//즉, js가 대신 실행시켜주길 바라는 것임!
+```
+
+- function이 js에게 넘겨주고 유저가 title을 click할 경우에 js가 실행버튼을 대신 눌러주길 바라는 것이다.
+- 함수에서 ( ) 이 두 괄호를 추가함으로써 실행버튼을 누를 수 있다.
+
+## Events pt.2
+
+`function` 뒤에 입력하기  
+
+```javascript
+const title = document.querySelector("div.hello:first-child h1");
+
+console.dir(title);
+function handleTitleClick() {
+    title.style.color = "blue";
+} //눌렀을떄
+
+function handleMouseEnter() {
+    title.innerText = "Mouse is here!"
+} //입장했을때
+
+function handleMouseLeave(){
+    title.innerText = "Mouse is gone!"
+} //떠났을때
+
+title.addEventListener("click", handleTitleClick);
+title.addEventListener("mouseenter", handleMouseEnter);
+title.addEventListener("mouseleave", handleMouseLeave);
+```  
+
+- `handleTitleClick()` : 클릭 했을 떄 ~
+- `handleMouseEnter()` : 글자에 가져다 댔을 때 ~
+- `handleMouseLeave()` : 글자에서 떠났을때 ~
+- `addEventListener()` : 리스너를 추가 ~
+
+
+- 방법1 : `title.addEventListener("click", handleTitleClick);`
+
+- 방법2 : `title.onclick = handleTitleClick`
+
+방법1을 선호하는 이유는 나중에 `.removeEventListener`을 할 수 있기 때문  
+
+## Window Envents
+
+* `resize` :  resize 를 통해서 창이 줄어들거나 느는 것을 감지 할 수 있음
+
+```javascript
+function handleWindowResize(){
+    //Resize 됐을때
+}
+
+window.addEventListener("resize", handleWindowResize);
+```
+
+- `copy` : copy를 통해서 복사 된 것을 감지 할 수 있음
+
+```javascript
+function handleWindowCopy() {
+    //Copy 됐을때
+}
+
+window.addEventListener("copy", handleWindowCopy);
+```
+
