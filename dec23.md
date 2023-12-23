@@ -228,7 +228,7 @@ const powerResult = calculator.power(2, 3);
 console.log(plusResult);
 ```
 
-dec 23
+## 2023년 12월 23일
 
 ## `prompt` 와 `parseInt`로 타입을 바꾸기
 
@@ -401,7 +401,7 @@ title.addEventListener("mouseleave", handleMouseLeave);
 
 방법1을 선호하는 이유는 나중에 `.removeEventListener`을 할 수 있기 때문  
 
-## Window Envents
+## ✓ Window Events
 
 * `resize` :  resize 를 통해서 창이 줄어들거나 느는 것을 감지 할 수 있음
 
@@ -422,4 +422,55 @@ function handleWindowCopy() {
 
 window.addEventListener("copy", handleWindowCopy);
 ```
+
+- `online` & `offline` : wifi 연결의 유무를 감지 할 수 있음
+
+```javascript
+function handleWIndowOffline() {
+    //Offline 일때
+}
+
+window.addEventListener("offline", handleWindowOffline);
+```
+
+그외에도 많은 기능이 있음   
+[👍 기능체크링크](https://developer.mozilla.org/ko/docs/Web/API/HTMLElement)
+
+## CSS in JavaScript
+
+클릭 할 때 마다 파란색과 토마토색을 왔다갔다 하게 하는 코드
+```javascript
+function handleTitleClick() {
+    if(h1.style.color === "blue") {
+        h1.style.color = "tomato";
+    } else {
+        h1.style.color = "blue";
+    }
+}
+
+h1.addEventListener("click", handleTitleClick);
+```
+
+이 코드 보다 더 짧게 코딩 하기 위해서는 `currentColor` 를 이용한다
+
+`currentColor` : 현재 색깔을 저장 할 수 있음
+```javascript
+const h1 = document.querySelector("div.hello:first-child h1");
+
+console.dir(h1);
+function handleTitleClick() {
+    const currentColor = h1.style.color;
+    let newColor;
+    if(currentColor === "blue") {
+        newColor = "tomato";
+    } else {
+        newColor = "blue";
+    }
+    h1.style.color = newColor;
+}
+
+h1.addEventListener("click", handleTitleClick);
+```
+
+보통 CSS 를 JavaScript 코드에 섞어 쓰는 걸 선호 하지 않음 따로 분리 하는 것 중요함.
 
