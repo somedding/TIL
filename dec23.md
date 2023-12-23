@@ -53,7 +53,7 @@ a = c;
 //재할당은 가능
 ```
 
-## var 변수 선언
+## Var 변수 선언
     재선언 O, 재할당 O 
 
 왠만하면 사용하지 않고 let과 const로 나누어 쓰기(옛날언어)  
@@ -66,7 +66,7 @@ a = d;
 //재선언, 재할당 가능
 ```
 
-## boolean
+## Boolean ( true or false )
  - `null` - nothing
  - `undefined` - 값이 없음
  - `true`
@@ -227,3 +227,65 @@ const powerResult = calculator.power(2, 3);
 
 console.log(plusResult);
 ```
+
+dec 23
+
+## `prompt` 와 `parseInt`로 타입을 바꾸기
+
+- `prompt` : 팝업창을 띄울 수 있음. 단, 예전 언어 임으로 거의 사용하지 않음
+
+    `prompt` 에서 뭔가를 적으면 `string` 형태로 저장됨
+
+    타입을 변경하는 방법을 알아보자.  
+
+- `parseInt` : `"15"` 라는 string을 `15` 라는 `number` 로 저장 할 수 있다.
+
+    ```javascript
+    const age = prompt("How old are you");
+
+    console.log(age, parsInt(age)); //prompt 에 입력한 숫자 string, number 출력
+    ```
+
+## 값의 type를 T/F 로 파악하기
+  - `isNaN()` : Number 의 유무를 `Boolean` 출력 
+
+## Conditionals (조건문)
+
+- `if` 문을 이용하여 조건문 표현
+```javascript
+if(condition){
+ // condition 이 true
+} else {
+// condition 이 false
+}
+```
+
+- 예시 : 나이를 입력 받고 숫자가 아니면 `if` 안을 실행하고, 숫자라면 나이가 18세 이상인지 이하인지 체크하는 코드
+
+```javascript
+const age = parseInt(prompt("How old are you?"));
+
+if (isNaN(age)) {
+    console.log("Please write a number");
+} else if (age < 18) {
+    console.log("You are too young");
+} else (age > 18) {
+    console.log("You can drink");
+}
+```
+
+## 논리 연산자
+
+    true || true === true
+    false || true === true
+    true || false === true
+    false || false === false
+
+
+    true && true === true
+    false && true === false
+    true && false === false
+    false && false === false
+
+
+## The Document Object
