@@ -485,3 +485,155 @@ h1.addEventListener("click", handleTitleClick);
 
 ## 🎅2023년 12월 25일
 
+css)
+```css
+transition: color 0.5s ease-in-out;
+```
+
+을 통해 자연스럽게 변하게 할 수 있음
+
+JS)
+```js
+if (h1.className === "active") {
+        h1.className = "";
+    } else {
+        h1.className = "active"
+    }
+```
+
+을 통해 `body` 안의 `class` 이름을 변경 할 수 있다.
+
+```js
+//JS 작성시 오타 방지
+
+const clickedClass = "clicked"
+```
+
+JS 작성시에 `const`를 선언하고 선언한 `const` `clickedClass`를 삽입하는 형태로 오타 및 오류를 방지 할 수 있다.
+
+- `classList`  
+
+`className`은 과거 `class`를 신경 쓰지 않고 교체 해버리지만, `classList`는 class들의 목록으로 작업 할 수 있게함
+
+```js
+if (h1.classList.contains(clickedClass)) {
+        h1.classList.remove(clickedClass);
+    } else {
+        h1.classList = add(clickedClass);
+    }
+```
+
+`classList.remove()` : classList에서 ()안을 제거
+
+`classList.contains()` : classList에서 ()을 가지고 있을때,
+
+`classList.add()` : classList에 ()안을 추가
+
+- `.toggle` function
+
+`toggle`은 특정 class name이 존재하는지만 확인하는 역할을 한다.
+
+```js
+if (h1.classList.contains(clickedClass)) {
+        h1.classList.remove(clickedClass);
+    } else {
+        h1.classList.add(clickedClass);
+    }
+```
+
+이 코드를  `toggle` 을 이용해서 짧게 표현 할 수 있다.
+
+```js
+h1.classList.toggle("clicked")
+```
+
+해석 :  `classList`에 `clicked`가 존재하지 않으면 `clicked`를 `classList`에 추가한다.
+
+## Input Value
+
+HTML)
+
+- 인풋 생성하기
+
+```html
+<input type="text" placeholed="what is your name?"/>
+```
+
+- 버튼 생성하기
+```html
+<button>Log In</button>
+```
+
+JS)
+
+```js
+const loginInput = document.querySelector("#login-form input");
+const loginButton = document.querySelector("#login-form button");
+
+function onLoginBtnClick() {
+    console.dir(loginInput); //loginInput 을 확인 할 수 있다
+    console.log("click"); //클릭 표시
+}
+loginButton.addEventListener("click", onLoginBtnClick);
+```
+
+-`.value`
+
+`value` function를 이용해서 `input value`를 저장 할 수 있다
+
+```js
+function onLoginBtnClick() {
+    console.log("hello", loginInput.value); // 입력받은 loginInput value 앞에 hello 를 추가 하는 코드
+}
+
+loginButton.addEventListener("click", onLoginBtnClick);
+```
+
+다음 코드를 이용해서 login에 입력한 value를 알 수 있다.
+
+## Input 값의 유효성을 검사하기
+
+`logInValue` 에 공백을 입력 할 경우,
+```js
+const value = loginInput.value;
+if(value === "") {
+        alert("이름을 입력해주세요"); //공백을 입력하면 alert 출력
+    }
+```
+
+를 `function` 안에 넣어서 공백을 입력하면 `alert` 를 출력하도록 할 수 있다.
+
+```js
+const loginInput = document.querySelector("#login-form input");
+const loginButton = document.querySelector("#login-form button");
+
+function onLoginBtnClick() {
+    const value = loginInput.value;
+    if(value === "") {
+        alert("이름을 입력해주세요"); //공백을 입력하면 alert 출력
+    } else if(value.length > 15) {
+        alert("이름이 너무 깁니다. 15글자 이상입니다");//15글자 이상이면 alert 출력
+    }
+}
+loginButton.addEventListener("click", onLoginBtnClick);
+```
+
+입력받은 value 값이 15글자 이상이거나 공백일때 `alert`를 출력하는 코드 이다.
+
+위의 코드를 이용하여 JS에서 글자수를 제한하고, 공백일떄 제한하는 방법도 있지만,
+
+HTML 의 `form` 을 이용해 브라우저의 기본 기능을 이용하는 것이 더 안전하고, 좋은 코드 이다. 이를 이용하려면 HTML 의 `body` 안에 `form`을 입력하면 된다.  
+
+HTML)
+```html
+<form id="login-form">
+        <input
+        required
+        maxlength="15" 
+        type="text" 
+        placeholed="what is your name?"
+        />
+        <button>Log In</button>
+      </form>
+```
+
