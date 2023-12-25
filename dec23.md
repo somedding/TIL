@@ -295,6 +295,15 @@ if (isNaN(age)) {
 -  document 가 HTML을 보여준다.
 - JavaScript에서 HTML document 객체로부터 항목을 가지고 올 수 있다. (JavaScript는 HTML 읽을 수 있다. ) 읽고, 변경도 가능
 
+
+```javascript
+document.title = "//이름"
+```
+
+으로 `document`의 `title`을 javascript 에서 변경 할 수 있다
+Javascript 는 HTML을 이용할 수 있다
+
+
 ## HTML in JavaScript
 
 1. document 라는 객체는 JS에서 HTML파일을 불러올 수 있도록 도와준다
@@ -473,4 +482,6 @@ h1.addEventListener("click", handleTitleClick);
 ```
 
 보통 CSS 를 JavaScript 코드에 섞어 쓰는 걸 선호 하지 않음 따로 분리 하는 것 중요함.
+
+## 🎅2023년 12월 25일
 
