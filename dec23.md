@@ -656,3 +656,118 @@ eon7500님의 정리
     이 preventDefault 함수는 EventListener 함수의 '첫 번째 argument' 안에 있는 함수이다. 첫 arument는 지금 막 벌어진 event들에 대한 정보를 갖고 있다.
     JS는(기본적으로)argument를 담아서 함수를 호출하는데, 이 argument가 기본 정보들을 제공하고 있다. ex) 누가 submit주체인지, 몇 시에 submit을 했는지 등등 콘솔에 출력해보면 알 수 있음
 
+
+HTML)
+- `href` 를 이용하여 앵커 걸기
+```html
+<a href="https://github.com/somedding">Go to Github</a>
+```
+
+## 2023년 12월 28일
+
+```js
+onst loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+
+const link = document.querySelector("a");
+function onLoginSubmit(event) {
+    const username = loginInput.value;
+    console.log(username);
+}
+
+function handleLinkClick() {
+    alert("clicked");
+}
+
+loginForm.addEventListener("submit", onLoginSubmit);
+link.addEventListener("click", handleLinkClick); // 링크를 누르면 handleLinckClick을 실행한다.
+```
+- `preventDefault()` : 이 코드를 이용하면 링크를 하려는 브라우저를 막을 수 있다.
+
+CSS
+```css
+.hidden {
+    display: none;
+}
+```
+
+HTML
+```html
+//html
+<form id="login-form" class="hidden">
+```
+
+CSS에 `diplay: none;`을 추가하고, HTML에 `hidden` 클래스를 넣으면 Log IN 창을 HTML에서 삭제 하지 않고도, CSS 선에서 안보이게 할 수 있다.
+
+이를 이용하여 사용자가 로그인 버튼을 클릭 했을때 로그인 창이 없어지게 만들 수 있다.
+
+```js
+function onLoginSubmit(event) {
+    event.preventDefault();
+    const username = loginInput.value;
+    loginForm.classList.add("hidden"); //class 에 hidden class 추가
+    console.log(username);
+}
+```
+
+html
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Momentum App</title>
+    </head>
+    <body>
+      <form id="login-form">
+        <input
+            required
+            maxlength="15"
+            type="text"
+            placeholder="What is your name?"
+        />
+        <input type="submit" value="Log In"/>
+      </form>
+      <h1 id="greeting" class="hidden"></h1>
+      <script src="app.js"></script>
+    </body>
+</html>
+```
+css
+```css
+.hidden {
+    display: none;
+}
+```
+js
+```js
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+
+const HIDDEN_CLASSNAME = "hidden";
+
+function onLoginSubmit(event) {
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    greeting.innerText = "Hello " + username; //더 직관적으로 표현 가능
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+loginForm.addEventListener("submit", onLoginSubmit);
+```
+string을 두개로 합치는 과정에서 아래 두개의 코드 모두 같은 것을 의미한다
+
+```js
+greeting.innerText = "Hello " + username;
+greeting.innerText = `Hello ${username}`;
+```
+
+두번째 방법을 이용할려면 `${}` 만 이용하면 된다. 주의 해야 할 점은 ` 이것을 이용하야 한다. ' 이 아닌 
+
+## 2023년 12월 29일
+
+## LOCALSTORAGE
