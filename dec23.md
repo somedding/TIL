@@ -771,3 +771,17 @@ greeting.innerText = `Hello ${username}`;
 ## 2023년 12월 29일
 
 ## LOCALSTORAGE
+
+LocalStorage는 브라우저에서 제공하는 기본 로컬 저장소이다.  
+
+
+[👍 기능체크링크](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+
+- `localStorage.setItem()` :
+
+```js
+localStorage.setItem("username", "someding")
+```
+
+을 이용하면 원하는 값을 Local Storage 에 저장 할 수 있다.
+
