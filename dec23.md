@@ -814,4 +814,3 @@ if (savedUsername === null) {
     greeting.innerText = `Hello ${savedUsername}`;
 }
 ```
-
