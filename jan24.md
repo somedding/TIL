@@ -130,3 +130,20 @@ toDoInput.value = "";
 6) todo-form 안에서 submit이 발생하는 특정 상황에서 함수handleTodoSubmmit을 실행 시키기 위해
 toDoform.addEventListner("submit", handleTodoSubmit); 을 기입한다.
 (함수 handleTodoSubmit이 항상 실행되고 있는 상태라면 text 창은 항상 비어있는 상태 일 것이기 때문에)
+
+## JSON.stringify()
+
+`JSON.stringify()` 를 이용하면, object 건 array 건 간에 모두 String으로 바꾸어 준다.
+
+
+# 2024 3월 Python
+## 2주차 3/14
+
+```python
+list1.pop()
+```
+pop 말고도 사용할 수 있는 것 이 많다
+```python
+list1.insert(2.1)
+```
+
