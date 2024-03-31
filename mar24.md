@@ -29,7 +29,7 @@ impl 트레잇명 for 구조체명 {
 }
 ```
 
-#### 제네릭 복습하기
+##### 제네릭 복습하기
 제네릭은 추상적인 타입을 지정해 다양한 데이터 타입 조작을 가능하게 하는 프로그래밍 기법
 
 제네릭을 이용하면 함수나 메서드의 사용 방법을 통일할 수 있다는 장점 외에도 코드 중복을 줄일 수 있
@@ -139,3 +139,69 @@ fn main() {
 가 있으므로 구조체의 각 필드 값을 println! 매크
 로로 출력할 수 있다.
 
+### 2024년 3월 31일
+#### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>멋쟁이사자처럼:)</title>
+
+    <meta property="og:title" content="멋쟁이 사자처럼 화이팅"> 
+    <meta property="og:description" content="멋쟁이 사자 처럼과 즐거운 코딩"> 
+    <meta property="og:image" content="./thumbnail.JPG"> 
+</head>
+<body>
+    
+    <!-- 표제 -->
+    <h1>모두를 위한 코딩 강의</h1>
+    <h2>멋쟁이 사자 처럼 스쿨</h2>
+
+    <p>멋쟁이사자처럼<br>여러분을 환영합니다.</p>
+
+    <p>주석 처리는 cmd + / </p>
+
+    <ol>
+        <li>
+            <a href="https://techit.education/">프론트엔드 수쿨
+            </a>
+        </li>
+        <li>백엔드 스쿨</li>
+        <li>블록체인 스쿨</li>
+    </ol>
+</body>
+</html>
+```
+
+`cmd + /` : 를 이용하면 간단하게 해당 문장을 주석 처리 할 수 있다.
+##### head
+`meta` : 태그를 이용하여 property 값과 content 값을 설정 할 수 있다
+`./` : 다음을 이용하여 폴더 내의 파일을 들고 올 수 있다.
+
+##### body
+`<h1></h1>` : h1 태그 h6까지 설정 할 수 있고 숫자가 작을 수록 크기가 커진다
+
+##### 레이아웃
+반드시 이용해야하는 것 을 아니지만, 보통 이렇게 구성된다  
+
+```html
+<header>
+서비스를 대표하는 것
+<nav>
+
+<section>
+실제적인 내용이 들어감
+<footer>
+저작권 정보, 연락처 정보
+```
+
+    semantic 
+    의미가 잘 전달되는 웹
+
+##### 정적인 웹을 배포하기
+반드시 `index.html` 로 설정 해야한다.
+
+`[계정명].github.io` 로 배포 할 수 있다.
